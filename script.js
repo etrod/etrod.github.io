@@ -78,3 +78,7 @@ document.getElementById('autoClicker').addEventListener('click', buyAutoClicker)
 document.getElementById('megaClicker').addEventListener('click', buyMegaClicker);
 document.getElementById('doubleClicks').addEventListener('click', buyDoubleClicks);
 document.getElementById('bonusClicks').addEventListener('click', buyBonusClicks);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById("shop").style.display = "block";
+});
