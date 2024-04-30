@@ -113,6 +113,7 @@ button:hover {
     transition: background-color 0.3s ease;
     display: block;
     margin: 0 auto; /* Centers the buttons horizontally */
+    text-align: center; /* Centers text within buttons */
 }
 
 .item-button:hover {
