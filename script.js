@@ -60,5 +60,3 @@ document.getElementById('clickButton').addEventListener('click', function() {
 
 document.getElementById('autoClicker').addEventListener('click', buyAutoClicker);
 document.getElementById('megaClicker').addEventListener('click', buyMegaClicker);
-
-document.addEventListener
