@@ -107,12 +107,12 @@ button:hover {
 }
 
 .item-button {
-    padding: 20px 20px; /* Increased padding for top and bottom */
-    margin-bottom: 25px; /* Increased margin between buttons */
+    padding: 30px 30px; /* Increased padding for top and bottom */
+    margin-bottom: 35px; /* Increased margin between buttons */
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
-    border: 5;
+    border: none;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
