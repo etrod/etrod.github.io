@@ -1,6 +1,8 @@
 let clicks = 0;
 let autoClickers = 0;
 let megaClickers = 0;
+let doubleClicks = 0;
+let bonusClicks = 0;
 
 function updateClicks() {
     document.getElementById('clicksValue').textContent = clicks;
@@ -52,11 +54,27 @@ function buyMegaClicker() {
     }
 }
 
+function buyDoubleClicks() {
+    if (purchaseItem(100)) {
+        doubleClicks++;
+    }
+}
+
+function buyBonusClicks() {
+    if (purchaseItem(200)) {
+        bonusClicks++;
+    }
+}
+
 document.getElementById('clickButton').addEventListener('click', function() {
     clicks++;
+    clicks += doubleClicks * 2; // Double clicks upgrade
+    clicks += bonusClicks * 5; // Bonus clicks upgrade
     updateClicks();
     playClickSound();
 });
 
 document.getElementById('autoClicker').addEventListener('click', buyAutoClicker);
 document.getElementById('megaClicker').addEventListener('click', buyMegaClicker);
+document.getElementById('doubleClicks').addEventListener('click', buyDoubleClicks);
+document.getElementById('bonusClicks').addEventListener('click', buyBonusClicks);
