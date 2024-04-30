@@ -107,8 +107,8 @@ button:hover {
 }
 
 .item-button {
-    padding: 20px 20px; /* Increased padding for top and bottom */
-    margin-bottom: 15px; /* Increased margin between buttons */
+    padding: 2px 2px; /* Increased padding for top and bottom */
+    margin-bottom: 25px; /* Increased margin between buttons */
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
