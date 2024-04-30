@@ -103,25 +103,25 @@ button:hover {
 
 #shop ul {
     list-style-type: none;
-    padding: 10;
+    padding: 0;
+    text-align: center; /* Center the buttons horizontally */
 }
 
-.item-button {
-    padding: 30px 30px; /* Increased padding for top and bottom */
-    margin-bottom: 35px; /* Increased margin between buttons */
+.shop-button {
+    display: inline-block; /* Align buttons horizontally */
+    padding: 15px 20px;
+    margin: 0 5px; /* Add some margin between buttons */
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: block;
-    margin: 0 auto;
     text-align: center;
 }
 
-.item-button:hover {
+.shop-button:hover {
     background-color: #0056b3;
 }
 
