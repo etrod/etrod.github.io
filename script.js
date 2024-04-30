@@ -34,10 +34,10 @@ function buyAutoClicker() {
     if (purchaseItem(10)) {
         autoClickers++;
         setInterval(function() {
-            clicks += autoClickers;
+            clicks += autoClickers * 0.5;
             updateClicks();
             playClickSound();
-        }, 1000);
+        }, 1500); // Slower click rate
     }
 }
 
@@ -45,10 +45,10 @@ function buyMegaClicker() {
     if (purchaseItem(50)) {
         megaClickers++;
         setInterval(function() {
-            clicks += megaClickers * 5;
+            clicks += megaClickers * 2;
             updateClicks();
             playClickSound();
-        }, 1000);
+        }, 2000); // Faster click rate
     }
 }
 
@@ -61,6 +61,4 @@ document.getElementById('clickButton').addEventListener('click', function() {
 document.getElementById('autoClicker').addEventListener('click', buyAutoClicker);
 document.getElementById('megaClicker').addEventListener('click', buyMegaClicker);
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('shop').style.display = 'block';
-});
+document.addEventListener
