@@ -21,3 +21,33 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+/* Inside styles.css */
+#shop {
+    margin-top: 30px;
+}
+
+#shop h2 {
+    margin-bottom: 10px;
+}
+
+#shop ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#shop li {
+    margin-bottom: 10px;
+}
+
+#shop button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#shop button:hover {
+    background-color: #218838;
+}
