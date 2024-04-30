@@ -15,11 +15,14 @@
         <div id="shop" class="fade-in">
             <h2>Shop</h2>
             <ul>
-                <li><button class="shop-button">Upgrade 1</button></li>
-                <li><button class="shop-button">Upgrade 2</button></li>
-                <li><button class="shop-button">Upgrade 3</button></li>
+                <li><button id="autoClicker" class="shop-button">Auto Clicker (Cost: 10)</button></li>
+                <li><button id="megaClicker" class="shop-button">Mega Clicker (Cost: 50)</button></li>
+                <li><button id="doubleClicks" class="shop-button">Double Clicks (Cost: 100)</button></li>
+                <li><button id="bonusClicks" class="shop-button">Bonus Clicks (Cost: 200)</button></li>
             </ul>
         </div>
+        <audio id="clickSound" src="click.wav"></audio>
+        <audio id="purchaseSound" src="purchase.wav"></audio>
     </div>
     <script src="script.js"></script>
 </body>
