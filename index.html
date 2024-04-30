@@ -1,130 +1,32 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #0b3d91;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="glow">Clicker Game</h1>
+        <p class="shake">Click the button as fast as you can!</p>
+        <button id="clickButton" class="pulse">Click Me!</button>
+        <p id="clicks" class="slide-in-left">Clicks: <span id="clicksValue">0</span></p>
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-}
+        <div id="shop" class="fade-in">
+            <h2>Shop</h2>
+            <ul>
+                <li><button id="autoClicker" class="item-button">Auto Clicker (Cost: 10 clicks)</button></li>
+                <li><button id="megaClicker" class="item-button">Mega Clicker (Cost: 50 clicks)</button></li>
+                <li><button id="doubleClicks" class="item-button">Double Clicks (Cost: 100 clicks)</button></li>
+                <li><button id="bonusClicks" class="item-button">Bonus Clicks (Cost: 200 clicks)</button></li>
+            </ul>
+        </div>
+    </div>
 
-h1 {
-    font-size: 36px;
-    color: #fff;
-}
+    <audio id="clickSound" src="click_sound.mp3"></audio>
+    <audio id="purchaseSound" src="purchase_sound.mp3"></audio>
 
-.glow {
-    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
-    }
-    to {
-        text-shadow: 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff;
-    }
-}
-
-p {
-    font-size: 18px;
-}
-
-.shake {
-    animation: shake 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes shake {
-    from {
-        transform: translateX(-5px);
-    }
-    to {
-        transform: translateX(5px);
-    }
-}
-
-button {
-    display: inline-block;
-    outline: 0;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    vertical-align: middle;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    background-color: #3e8ef7;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.pulse {
-    animation: pulse 1s ease infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-#shop {
-    margin-top: 30px;
-}
-
-.fade-in {
-    animation: fade-in 1s forwards;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.item-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.item-button:hover {
-    background-color: #0056b3;
-}
-
-.slide-in-left {
-    animation: slide-in-left 1s forwards;
-}
-
-@keyframes slide-in-left {
-    from {
-        transform: translateX(-200px);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
