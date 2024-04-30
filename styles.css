@@ -101,9 +101,14 @@ button:hover {
     }
 }
 
+#shop ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 .item-button {
     padding: 15px 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Increased margin between buttons */
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
@@ -112,16 +117,12 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 0 auto; /* Centers the buttons horizontally */
-    text-align: center; /* Centers text within buttons */
+    margin: 0 auto;
+    text-align: center;
 }
 
 .item-button:hover {
     background-color: #0056b3;
-}
-
-#shop ul {
-    list-style-type: none;
 }
 
 .slide-in-left {
