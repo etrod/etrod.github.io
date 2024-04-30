@@ -21,13 +21,14 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-/* Inside styles.css */
+
 #shop {
     margin-top: 30px;
 }
 
 #shop h2 {
     margin-bottom: 10px;
+    font-size: 24px;
 }
 
 #shop ul {
@@ -39,15 +40,15 @@ button:hover {
     margin-bottom: 10px;
 }
 
-#shop button {
-    padding: 5px 10px;
+.item-button {
+    padding: 10px 20px;
     font-size: 16px;
-    background-color: #28a745;
+    background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
-#shop button:hover {
-    background-color: #218838;
+.item-button:hover {
+    background-color: #0056b3;
 }
