@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>Clicker Game</h1>
-        <p>Click the button as fast as you can!</p>
-        <button id="clickButton">Click Me!</button>
-        <p id="clicks">Clicks: <span id="clicksValue">0</span></p>
+        <h1 class="glow">Clicker Game</h1>
+        <p class="shake">Click the button as fast as you can!</p>
+        <button id="clickButton" class="pulse">Click Me!</button>
+        <p id="clicks" class="slide-in-left">Clicks: <span id="clicksValue">0</span></p>
 
-        <div id="shop">
+        <div id="shop" class="fade-in">
             <h2>Shop</h2>
             <ul>
                 <li><button id="autoClicker" class="item-button">Auto Clicker (Cost: 10 clicks)</button></li>
@@ -21,6 +21,9 @@
             </ul>
         </div>
     </div>
+
+    <audio id="clickSound" src="click_sound.mp3"></audio>
+    <audio id="purchaseSound" src="purchase_sound.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
