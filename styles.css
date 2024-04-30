@@ -112,7 +112,7 @@ button:hover {
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
-    border: none;
+    border: 5;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
