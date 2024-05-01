@@ -15,95 +15,15 @@
         <div id="shop" class="fade-in">
             <h2>Shop</h2>
             <ul>
-                <li><button id="autoClicker" class="shop-button" onclick="buyAutoClicker()">Auto Clicker (Cost: 10)</button></li>
-                <li><button id="megaClicker" class="shop-button" onclick="buyMegaClicker()">Mega Clicker (Cost: 50)</button></li>
-                <li><button id="doubleClicks" class="shop-button" onclick="buyDoubleClicks()">Double Clicks (Cost: 100)</button></li>
-                <li><button id="bonusClicks" class="shop-button" onclick="buyBonusClicks()">Bonus Clicks (Cost: 200)</button></li>
+                <li><button id="autoClicker" class="shop-button">Auto Clicker (Cost: 10) <span id="autoClickerCounter">(0)</span></button></li>
+                <li><button id="megaClicker" class="shop-button">Mega Clicker (Cost: 50) <span id="megaClickerCounter">(0)</span></button></li>
+                <li><button id="doubleClicks" class="shop-button">Double Clicks (Cost: 100) <span id="doubleClicksCounter">(0)</span></button></li>
+                <li><button id="bonusClicks" class="shop-button">Bonus Clicks (Cost: 200) <span id="bonusClicksCounter">(0)</span></button></li>
             </ul>
         </div>
         <audio id="clickSound" src="click.wav"></audio>
         <audio id="purchaseSound" src="purchase.wav"></audio>
     </div>
-    <script>
-        let clicks = 0;
-        let autoClickers = 0;
-        let megaClickers = 0;
-        let doubleClicks = 0;
-        let bonusClicks = 0;
-
-        function updateClicks() {
-            document.getElementById('score').textContent = `Score: ${clicks}`;
-        }
-
-        function playClickSound() {
-            const clickSound = document.getElementById('clickSound');
-            clickSound.currentTime = 0;
-            clickSound.play();
-        }
-
-        function playPurchaseSound() {
-            const purchaseSound = document.getElementById('purchaseSound');
-            purchaseSound.currentTime = 0;
-            purchaseSound.play();
-        }
-
-        function purchaseItem(cost) {
-            if (clicks >= cost) {
-                clicks -= cost;
-                updateClicks();
-                playPurchaseSound();
-                return true;
-            } else {
-                alert("Not enough clicks!");
-                return false;
-            }
-        }
-
-        function buyAutoClicker() {
-            if (purchaseItem(10)) {
-                autoClickers++;
-                setInterval(function() {
-                    clicks += autoClickers * 0.5;
-                    updateClicks();
-                    playClickSound();
-                }, 1500); // Slower click rate
-            }
-        }
-
-        function buyMegaClicker() {
-            if (purchaseItem(50)) {
-                megaClickers++;
-                setInterval(function() {
-                    clicks += megaClickers * 2;
-                    updateClicks();
-                    playClickSound();
-                }, 2000); // Faster click rate
-            }
-        }
-
-        function buyDoubleClicks() {
-            if (purchaseItem(100)) {
-                doubleClicks++;
-            }
-        }
-
-        function buyBonusClicks() {
-            if (purchaseItem(200)) {
-                bonusClicks++;
-            }
-        }
-
-        document.getElementById('clickButton').addEventListener('click', function() {
-            clicks++;
-            clicks += doubleClicks * 2; // Double clicks upgrade
-            clicks += bonusClicks * 5; // Bonus clicks upgrade
-            updateClicks();
-            playClickSound();
-        });
-
-        document.addEventListener("DOMContentLoaded", function(event) {
-            document.getElementById("shop").style.display = "block";
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
