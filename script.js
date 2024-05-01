@@ -32,48 +32,51 @@ function purchaseItem(cost) {
     }
 }
 
-function buyAutoClicker() {
+// Buy Auto Clicker
+document.getElementById('autoClicker').addEventListener('click', function() {
     if (purchaseItem(10)) {
         autoClickers++;
+        updateCounters();
         setInterval(function() {
             clicks += autoClickers * 0.5;
             updateClicks();
             playClickSound();
         }, 1500); // Slower click rate
     }
-}
+});
 
-function buyMegaClicker() {
+// Buy Mega Clicker
+document.getElementById('megaClicker').addEventListener('click', function() {
     if (purchaseItem(50)) {
         megaClickers++;
+        updateCounters();
         setInterval(function() {
             clicks += megaClickers * 2;
             updateClicks();
             playClickSound();
         }, 2000); // Faster click rate
     }
-}
+});
 
-function buyDoubleClicks() {
+// Buy Double Clicks
+document.getElementById('doubleClicks').addEventListener('click', function() {
     if (purchaseItem(100)) {
         doubleClicks++;
+        updateCounters();
     }
-}
+});
 
-function buyBonusClicks() {
+// Buy Bonus Clicks
+document.getElementById('bonusClicks').addEventListener('click', function() {
     if (purchaseItem(200)) {
         bonusClicks++;
+        updateCounters();
     }
+});
+
+function updateCounters() {
+    document.getElementById('autoClickerCounter').textContent = `(${autoClickers})`;
+    document.getElementById('megaClickerCounter').textContent = `(${megaClickers})`;
+    document.getElementById('doubleClicksCounter').textContent = `(${doubleClicks})`;
+    document.getElementById('bonusClicksCounter').textContent = `(${bonusClicks})`;
 }
-
-document.getElementById('clickButton').addEventListener('click', function() {
-    clicks++;
-    clicks += doubleClicks * 2; // Double clicks upgrade
-    clicks += bonusClicks * 5; // Bonus clicks upgrade
-    updateClicks();
-    playClickSound();
-});
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById("shop").style.display = "block";
-});
