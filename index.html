@@ -1,79 +1,109 @@
-let clicks = 0;
-let autoClickers = 0;
-let megaClickers = 0;
-let doubleClicks = 0;
-let bonusClicks = 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="glow">Clicker Game</h1>
+        <p>Click the button to score!</p>
+        <button id="clickButton" class="pulse">Click Me!</button>
+        <p id="score">Score: 0</p>
+        <div id="shop" class="fade-in">
+            <h2>Shop</h2>
+            <ul>
+                <li><button id="autoClicker" class="shop-button" onclick="buyAutoClicker()">Auto Clicker (Cost: 10)</button></li>
+                <li><button id="megaClicker" class="shop-button" onclick="buyMegaClicker()">Mega Clicker (Cost: 50)</button></li>
+                <li><button id="doubleClicks" class="shop-button" onclick="buyDoubleClicks()">Double Clicks (Cost: 100)</button></li>
+                <li><button id="bonusClicks" class="shop-button" onclick="buyBonusClicks()">Bonus Clicks (Cost: 200)</button></li>
+            </ul>
+        </div>
+        <audio id="clickSound" src="click.wav"></audio>
+        <audio id="purchaseSound" src="purchase.wav"></audio>
+    </div>
+    <script>
+        let clicks = 0;
+        let autoClickers = 0;
+        let megaClickers = 0;
+        let doubleClicks = 0;
+        let bonusClicks = 0;
 
-function updateClicks() {
-    document.getElementById('score').textContent = `Score: ${clicks}`;
-}
+        function updateClicks() {
+            document.getElementById('score').textContent = `Score: ${clicks}`;
+        }
 
-function playClickSound() {
-    const clickSound = document.getElementById('clickSound');
-    clickSound.currentTime = 0;
-    clickSound.play();
-}
+        function playClickSound() {
+            const clickSound = document.getElementById('clickSound');
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }
 
-function playPurchaseSound() {
-    const purchaseSound = document.getElementById('purchaseSound');
-    purchaseSound.currentTime = 0;
-    purchaseSound.play();
-}
+        function playPurchaseSound() {
+            const purchaseSound = document.getElementById('purchaseSound');
+            purchaseSound.currentTime = 0;
+            purchaseSound.play();
+        }
 
-function purchaseItem(cost) {
-    if (clicks >= cost) {
-        clicks -= cost;
-        updateClicks();
-        playPurchaseSound();
-        return true;
-    } else {
-        alert("Not enough clicks!");
-        return false;
-    }
-}
+        function purchaseItem(cost) {
+            if (clicks >= cost) {
+                clicks -= cost;
+                updateClicks();
+                playPurchaseSound();
+                return true;
+            } else {
+                alert("Not enough clicks!");
+                return false;
+            }
+        }
 
-function buyAutoClicker() {
-    if (purchaseItem(10)) {
-        autoClickers++;
-        setInterval(function() {
-            clicks += autoClickers * 0.5;
+        function buyAutoClicker() {
+            if (purchaseItem(10)) {
+                autoClickers++;
+                setInterval(function() {
+                    clicks += autoClickers * 0.5;
+                    updateClicks();
+                    playClickSound();
+                }, 1500); // Slower click rate
+            }
+        }
+
+        function buyMegaClicker() {
+            if (purchaseItem(50)) {
+                megaClickers++;
+                setInterval(function() {
+                    clicks += megaClickers * 2;
+                    updateClicks();
+                    playClickSound();
+                }, 2000); // Faster click rate
+            }
+        }
+
+        function buyDoubleClicks() {
+            if (purchaseItem(100)) {
+                doubleClicks++;
+            }
+        }
+
+        function buyBonusClicks() {
+            if (purchaseItem(200)) {
+                bonusClicks++;
+            }
+        }
+
+        document.getElementById('clickButton').addEventListener('click', function() {
+            clicks++;
+            clicks += doubleClicks * 2; // Double clicks upgrade
+            clicks += bonusClicks * 5; // Bonus clicks upgrade
             updateClicks();
             playClickSound();
-        }, 1500); // Slower click rate
-    }
-}
+        });
 
-function buyMegaClicker() {
-    if (purchaseItem(50)) {
-        megaClickers++;
-        setInterval(function() {
-            clicks += megaClickers * 2;
-            updateClicks();
-            playClickSound();
-        }, 2000); // Faster click rate
-    }
-}
-
-function buyDoubleClicks() {
-    if (purchaseItem(100)) {
-        doubleClicks++;
-    }
-}
-
-function buyBonusClicks() {
-    if (purchaseItem(200)) {
-        bonusClicks++;
-    }
-}
-
-document.getElementById('clickButton').addEventListener('click', function() {
-    clicks++;
-    clicks += doubleClicks * 2; // Double clicks upgrade
-    clicks += bonusClicks * 5; // Bonus clicks upgrade
-    updateClicks();
-    playClickSound();
-});
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById("shop").style.display = "block";
-});
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById("shop").style.display = "block";
+        });
+    </script>
+</body>
+</html>
